@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TikTok Authorization Callback</title>
+  <style>
+    body {
+      color: #1f2933;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: #f7f8fa;
+    }
+
+    main {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      background: #ffffff;
+      min-height: 100vh;
+    }
+
+    h1, h2 {
+      color: #111827;
+      line-height: 1.25;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    code, pre {
+      background: #eef2f7;
+      border-radius: 6px;
+      color: #111827;
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    code {
+      padding: 2px 5px;
+    }
+
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .muted {
+      color: #5f6b7a;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>TikTok Authorization Callback</h1>
+    <p>
+      TikTok returned to this page after authorization. If an authorization code is present,
+      copy it and use it in the local Video Bot TikTok setup flow.
+    </p>
+
+    <h2>Authorization Code</h2>
+    <pre id="code">No code parameter found.</pre>
+
+    <h2>State</h2>
+    <pre id="state">No state parameter found.</pre>
+
+    <p class="muted">
+      This page does not send data to any server. It only reads the current URL in your
+      browser and displays the parameters returned by TikTok.
+    </p>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const state = params.get("state");
+
+    if (code) {
+      document.getElementById("code").textContent = code;
+    }
+
+    if (state) {
+      document.getElementById("state").textContent = state;
+    }
+  </script>
+</body>
+</html>
