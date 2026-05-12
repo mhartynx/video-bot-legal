@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Video Bot</title>
-  <meta name="description" content="Video Bot is a local creator tool for generating short vertical videos and publishing them to TikTok and YouTube.">
+  <meta name="description" content="Video Bot is a desktop creator tool for generating short vertical videos and publishing them to TikTok and YouTube.">
   <style>
     body {
       color: #1f2933;
@@ -41,29 +41,66 @@
       gap: 16px;
       margin-top: 24px;
     }
+
+    .button {
+      background: #111827;
+      border-radius: 6px;
+      color: #ffffff;
+      display: inline-block;
+      font-weight: 700;
+      margin: 12px 0 24px;
+      padding: 12px 18px;
+      text-decoration: none;
+    }
+
+    .note {
+      background: #eef2f7;
+      border-left: 4px solid #0f62fe;
+      margin: 24px 0;
+      padding: 16px;
+    }
   </style>
 </head>
 <body>
   <main>
     <h1>Video Bot</h1>
     <p>
-      Video Bot is a local creator tool that helps the authorized creator generate
-      short vertical videos and publish them to TikTok and YouTube.
+      Video Bot is a desktop creator tool that helps the authorized creator
+      generate short vertical videos and publish them to TikTok and YouTube.
     </p>
+
+    <a class="button" href="tiktok-callback.html">TikTok OAuth Callback</a>
+
+    <div class="note">
+      Video Bot runs locally on the creator's computer. The desktop tool opens
+      TikTok OAuth in the browser, then uses the registered callback page to
+      complete authorization.
+    </div>
 
     <h2>How It Works</h2>
     <p>
-      The tool runs in the creator's local environment. It can generate a script,
-      create voice audio, compose subtitles and visuals, export an MP4 video, and
-      upload or publish that video through platform APIs after the creator grants
-      authorization.
+      The creator runs Video Bot from their local desktop environment. The tool
+      can generate a script, create voice audio, compose subtitles and visuals,
+      export an MP4 video, and upload or publish that video through platform APIs
+      after the creator grants authorization.
+    </p>
+
+    <h2>Desktop Login Flow</h2>
+    <p>
+      The desktop tool starts the TikTok Login Kit flow by opening the TikTok
+      authorization URL in the creator's browser. After the creator approves the
+      requested permissions, TikTok redirects to the registered OAuth callback
+      page. The creator copies the authorization code back into the desktop tool,
+      which exchanges it for an access token and stores it locally.
     </p>
 
     <h2>TikTok Integration</h2>
     <p>
       Video Bot uses TikTok Login Kit for OAuth authorization and TikTok Content
-      Posting API to upload videos to the creator's account. Direct Post is used
-      only after the creator authorizes the required permissions.
+      Posting API to upload or publish videos to the creator's own TikTok
+      account. For Direct Post, the tool queries creator information, initializes
+      a video publish request, uploads the MP4 file, and checks publish status
+      until completion.
     </p>
 
     <div class="links">
