@@ -69,12 +69,12 @@
       generate short vertical videos and publish them to TikTok and YouTube.
     </p>
 
-    <a class="button" href="tiktok-callback.html">TikTok OAuth Callback</a>
+    <a class="button" href="#desktop-login-flow">Desktop Login Flow</a>
 
     <div class="note">
       Video Bot runs locally on the creator's computer. The desktop tool opens
-      TikTok OAuth in the browser, then uses the registered callback page to
-      complete authorization.
+      TikTok OAuth in the browser, then receives TikTok's redirect on a local
+      desktop callback URL.
     </div>
 
     <h2>How It Works</h2>
@@ -85,13 +85,14 @@
       after the creator grants authorization.
     </p>
 
-    <h2>Desktop Login Flow</h2>
+    <h2 id="desktop-login-flow">Desktop Login Flow</h2>
     <p>
       The desktop tool starts the TikTok Login Kit flow by opening the TikTok
       authorization URL in the creator's browser. After the creator approves the
-      requested permissions, TikTok redirects to the registered OAuth callback
-      page. The creator copies the authorization code back into the desktop tool,
-      which exchanges it for an access token and stores it locally.
+      requested permissions, TikTok redirects to the registered desktop callback
+      URL, such as <code>http://localhost:8765/callback</code>. The desktop tool
+      receives the authorization code locally, exchanges it for an access token,
+      and stores it on the creator's computer.
     </p>
 
     <h2>TikTok Integration</h2>
@@ -106,7 +107,6 @@
     <div class="links">
       <a href="terms.html">Terms of Service</a>
       <a href="privacy.html">Privacy Policy</a>
-      <a href="tiktok-callback.html">TikTok OAuth Callback</a>
     </div>
   </main>
 </body>
